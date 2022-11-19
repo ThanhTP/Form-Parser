@@ -4,17 +4,15 @@
 const projectId = "global-brook-367615";
 const location = "us"; // Format is 'us' or 'eu'
 const processorId = "657980abba264a16"; // Create processor in Cloud Console
-const filePath = "./dat.jpg";
+const filePath = "../images/dat.jpg";
 
-const { DocumentProcessorServiceClient } =
-  require("@google-cloud/documentai").v1;
-
+import { DocumentProcessorServiceClient } from "@google-cloud/documentai";
 // Instantiates a client
 // apiEndpoint regions available: eu-documentai.googleapis.com, us-documentai.googleapis.com (Required if using eu based processor)
 // const client = new DocumentProcessorServiceClient({apiEndpoint: 'eu-documentai.googleapis.com'});
 const client = new DocumentProcessorServiceClient();
 
-async function quickstart() {
+const processing = async () => {
   let formData = [];
   // The full resource name of the processor, e.g.:
   // projects/project-id/locations/location/processor/processor-id
@@ -79,7 +77,7 @@ async function quickstart() {
 
     return formData;
   }
-}
+};
 
 const printTableInfo = (table, text) => {
   // Print header row
@@ -147,4 +145,4 @@ function printRow(data, text, i) {
   );
 }
 
-quickstart().then((x) => console.log(x, "res"));
+export default processing;
