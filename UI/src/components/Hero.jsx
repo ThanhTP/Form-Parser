@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form";
 const Hero = () => {
   const { register, handleSubmit } = useForm();
 
-  let 
-
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("file", data.file[0]);
@@ -19,9 +17,6 @@ const Hero = () => {
       // console.log(JSON.stringify(`${res.message}, status: ${res.status}`));
     );
   };
-
-
-
 
   return (
     <>

@@ -25,6 +25,13 @@ const Input = ({ placeholder, name, type, value, handleChange }) => {
   );
 };
 
+const INITIAL_STATE = {
+  noun: "",
+  noun2: "",
+  adjective: "",
+  color: "",
+};
+
 const commonCss =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-white font-light text-sm";
 

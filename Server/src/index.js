@@ -182,8 +182,8 @@ async function quickstart(filePath) {
     }
     console.log(`Found ${page.formFields.length} form field(s):`);
     for (const field of page.formFields) {
-      const fieldName = getText(field.fieldName.textAnchor, text);
-      const fieldValue = getText(field.fieldValue.textAnchor, text);
+      const fieldName = getText(field.fieldName.textAnchor, text).trim();
+      const fieldValue = getText(field.fieldValue.textAnchor, text).trim();
       let dataValue = {
         fieldName: fieldName,
         fieldValue: fieldValue,
@@ -205,7 +205,7 @@ const printTableInfo = (table, text) => {
   let headerRowText = "";
   for (const headerCell of table.headerRows[0].cells) {
     const headerCellText = getText(headerCell.layout.textAnchor, text);
-    headerRowText += `${JSON.stringify(headerCellText.trim())} | `;
+    headerRowText += headerCellText.trim();
   }
   // console.log(
   //   `Collumns: ${headerRowText.substring(0, headerRowText.length - 3)}`
@@ -215,7 +215,7 @@ const printTableInfo = (table, text) => {
   for (const bodyCell of table.bodyRows[0].cells) {
     //console.log("bodycell", bodyCell);
     const bodyCellText = getText(bodyCell.layout.textAnchor, text);
-    bodyRowText += `${JSON.stringify(bodyCellText.trim())} | `;
+    bodyRowText += bodyCellText.trim();
   }
   // console.log(
   //   `First row data: ${bodyRowText.substring(0, bodyRowText.length - 3)}`
@@ -262,9 +262,9 @@ function printRow(data, text, i) {
   let bodyRowText = "";
   for (data of data.cells) {
     const bodyCellText = getText(data.layout.textAnchor, text);
-    var datatest = `${JSON.stringify(bodyCellText.trim())}`;
+    var datatest = bodyCellText.trim();
     bodydata.push(datatest);
-    bodyRowText += `${JSON.stringify(bodyCellText.trim())} | `;
+    // bodyRowText += `${JSON.stringify(bodyCellText.trim())} | `;
   }
 
   //console.log(bodydata);
