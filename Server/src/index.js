@@ -91,12 +91,12 @@ app.post("/upload-file1", async (req, res) => {
       console.log(req.files);
 
       file.mv("./uploads/" + file.name);
-      const ress = await quickstart("./uploads/" + file.name);
+      const result = await quickstart("./uploads/" + file.name);
       res.send({
         status: "success",
         message: "File is uploaded",
         data: {
-          ress,
+          result,
         },
       });
     }
